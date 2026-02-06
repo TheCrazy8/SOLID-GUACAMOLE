@@ -409,10 +409,7 @@ function gameLoop() {
                 game.sanity = game.maxSanity;
             }
         }
-
-        try {
-            render();
-        } catch (e) {}
+        render();
         const cpos = updateCamera();
         
         // Check if found Djibouti
