@@ -359,15 +359,17 @@ function render() {
             wallX = camera.yPos + ((mapX - camera.xPos + (1 - stepX) / 2) / rayDirX) * rayDirY;
         }
         wallX -= Math.floor(wallX);
+
+        let ttr = textures[texNum] || textures[0];
         
-        let texX = Math.floor(wallX * textures[texNum].SIZE);
-        if (side === 0 && rayDirX > 0) texX = textures[texNum].SIZE - texX - 1;
-        if (side === 1 && rayDirY < 0) texX = textures[texNum].SIZE - texX - 1;
+        let texX = Math.floor(wallX * ttr.SIZE);
+        if (side === 0 && rayDirX > 0) texX = ttr.SIZE - texX - 1;
+        if (side === 1 && rayDirY < 0) texX = ttr.SIZE - texX - 1;
         
         for (let y = Math.floor(drawStart); y < Math.floor(drawEnd); y++) {
             const texY = Math.floor((((y * 2 - CANVAS_HEIGHT + lineHeight) << 6) / lineHeight) / 2);
-            const texIndex = texX + (texY * textures[texNum].SIZE);
-            let color = textures[texNum].pixels[texIndex];
+            const texIndex = texX + (texY * ttr.SIZE);
+            let color = ttr.pixels[texIndex];
             
             if (side === 1) {
                 // Make y-sides darker
