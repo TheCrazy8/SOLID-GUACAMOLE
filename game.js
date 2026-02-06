@@ -320,7 +320,8 @@ function render() {
         let hit = false;
         let side = 0;
         
-        while (!hit) {
+        for (let i=0;i<3;i++) {
+            if (hit) {break;}
             if (sideDistX < sideDistY) {
                 sideDistX += deltaDistX;
                 mapX += stepX;
@@ -330,11 +331,9 @@ function render() {
                 mapY += stepY;
                 side = 1;
             }
-            /*
             if (game.map[mapX] && game.map[mapX][mapY] > 0) {
                 hit = true;
             }
-            */
         }
         
         let perpWallDist;
