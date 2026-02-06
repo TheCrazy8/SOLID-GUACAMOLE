@@ -1,3 +1,5 @@
+//TODO: fix render issue causing infinite loop hang softlock
+
 // Game constants
 const MAP_WIDTH = 24;
 const MAP_HEIGHT = 24;
