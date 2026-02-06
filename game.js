@@ -331,7 +331,7 @@ function render() {
             
             if (game.map[mapX] && game.map[mapX][mapY] > 0) {
                 hit = true;
-            }
+            } else {console.log("hang");}
         }
         
         let perpWallDist;
