@@ -464,6 +464,7 @@ function gameLoop() {
         if (game.sanity < 0) game.sanity = 0;
         if (game.verbosity <= 2) {
             log("SEENOEVIL" + game.sanity);
+            log(e);
         }
     }
     
