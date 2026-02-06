@@ -335,7 +335,7 @@ function render() {
             if (game.map[mapX] && game.map[mapX][mapY] > 0) {
                 hit = true;
             }
-            } catch (e) {console.log("caught");}
+            } catch (e) {console.log("caught");break;}
         }
         
         let perpWallDist;
