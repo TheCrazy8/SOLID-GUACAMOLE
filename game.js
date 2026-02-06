@@ -331,7 +331,7 @@ function render() {
             
             if (game.map[mapX] && game.map[mapX][mapY] > 0) {
                 hit = true;
-            } else {console.log("hang");}
+            }
         }
         
         let perpWallDist;
@@ -363,6 +363,7 @@ function render() {
         if (side === 1 && rayDirY < 0) texX = textures[texNum].SIZE - texX - 1;
         
         for (let y = Math.floor(drawStart); y < Math.floor(drawEnd); y++) {
+            try {
             const texY = Math.floor((((y * 2 - CANVAS_HEIGHT + lineHeight) << 6) / lineHeight) / 2);
             const texIndex = texX + (texY * textures[texNum].SIZE);
             let color = textures[texNum].pixels[texIndex];
@@ -380,6 +381,7 @@ function render() {
             data[pixelIndex + 1] = (color >> 8) & 0xFF;  // G
             data[pixelIndex + 2] = color & 0xFF;         // B
             data[pixelIndex + 3] = 255;                  // A
+            } catch(e) {console.log("render failure");}
         }
     }
     
